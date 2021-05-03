@@ -1,11 +1,11 @@
-# Discord.js-bot-template
-An open to everyone discord.js template
+# Discord.js-bot-template.
+An open to everyone discord.js template.
 
 
 You are welcome to fork it and use it to build your own bot. We suggest that you use heroku if you want to host it 24/7.
 
 
-# getting it running
+# Getting it running.
 To get your bot working, you need to go to [discord developer portal](https://discordapp.com/developers), create an app, go to bot tab on the right, click create a bot, and copy the token.
 
 After obtaining your token, go to config.json and insert your token inside the quotation mark where it says "your token".
