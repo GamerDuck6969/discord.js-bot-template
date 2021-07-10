@@ -4,11 +4,9 @@ const prefix = require("../../config.json").prefix;
 
 module.exports = {
   name: "help",
-  aliases : ['h'],
+  aliases: ["h"],
   description: "Shows all available bot commands.",
   run: async (client, message, args) => {
-
-
     const roleColor =
       message.guild.me.displayHexColor === "#000000"
         ? "#ffffff"
@@ -17,8 +15,8 @@ module.exports = {
     if (!args[0]) {
       let categories = [];
 
-      readdirSync("./commands/").forEach((dir) => {
-        const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
+      readdirSync("./src/commands/").forEach((dir) => {
+        const commands = readdirSync(`./src/commands/${dir}/`).filter((file) =>
           file.endsWith(".js")
         );
 
@@ -46,7 +44,7 @@ module.exports = {
         .setTitle("📬 Need help? Here are all of my commands:")
         .addFields(categories)
         .setDescription(
-          `Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help ban\`.`
+          `Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help [command name]\`.`
         )
         .setFooter(
           `Requested by ${message.author.tag}`,
@@ -64,7 +62,9 @@ module.exports = {
 
       if (!command) {
         const embed = new MessageEmbed()
-          .setTitle(`Invalid command! Use \`${prefix}help\` for all of my commands!`)
+          .setTitle(
+            `Invalid command! Use \`${prefix}help\` for all of my commands!`
+          )
           .setColor("FF0000");
         return message.channel.send(embed);
       }
